@@ -17,7 +17,24 @@
 
         <label>Introduce la ciudad </label>
         <input type="text" id="city" placeholder="Introduce una ciudad" />
-        <button id="btSearch">Buscar</button>
+        <button id="btSearch">Buscar</button><br /><br />
+
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" id="cityShow">Ciudad</th>
+                <th scope="col" id="tem">Temperatura</th>
+                <th scope="col" id="des">Descripción</th>
+                <th scope="col" id="hum">Humedad</th>
+                <th scope="col" id="wind">Viento</th>
+              </tr>
+            </thead>
+            <tbody id="renderTable">
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="news">
