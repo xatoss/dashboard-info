@@ -1,4 +1,4 @@
-const MY_Api_KEY = "b192813590df15f9733b4ad1755430c1";
+const api = CONFIG.WEATHER_API_KEY;
 const theCity = document.querySelector("#city");
 const btSearch = document.querySelector("#btSearch");
 
@@ -12,7 +12,7 @@ async function searchWeather() {
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     theCity.value +
     "&appid=" +
-    MY_Api_KEY +
+    api +
     "&units=metric&lang=es";
   try {
     const response = await fetch(url);
