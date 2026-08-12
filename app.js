@@ -47,9 +47,9 @@ function resultTable(data) {
   const tdWind = document.createElement("td");
   tdWind.textContent = data.wind.speed;
 
+  tr.appendChild(tdCity);
   tr.appendChild(tdTemp);
   tr.appendChild(tdDesc);
-  tr.appendChild(tdCity);
   tr.appendChild(tdHum);
   tr.appendChild(tdWind);
 
