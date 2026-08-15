@@ -1,6 +1,11 @@
+let currentPage = 1;
 async function searchNews() {
   const api = CONFIG.NEWS_API_KEY;
-  const url = "https://newsapi.org/v2/everything?q=españa&apiKey=" + api;
+  const url =
+    "https://newsapi.org/v2/everything?q=españa&pageSize=10&page=" +
+    currentPage +
+    "&apiKey=" +
+    api;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -37,3 +42,23 @@ function renderNews(data) {
     newsContainer.appendChild(div);
   });
 }
+function pagination() {
+  const btBefore = document.querySelector("#btBefore");
+  const btAfter = document.querySelector("#btAfter");
+  const infoPage = document.querySelector("#infoPage");
+
+  btBefore.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      infoPage.textContent = "Pagina " + currentPage;
+      searchNews(currentPage);
+    }
+  });
+
+  btAfter.addEventListener("click", () => {
+    currentPage++;
+    infoPage.textContent = "Pagina " + currentPage;
+    searchNews(currentPage);
+  });
+}
+pagination();
