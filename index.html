@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Info</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"
+    />
   </head>
   <body>
     <header>
       <h1>Dashboard Info</h1>
+      <button id="btDarkMode">🌙 Modo Oscuro</button>
     </header>
 
     <main>
@@ -28,6 +33,7 @@
                 <th>Descripción</th>
                 <th>Humedad</th>
                 <th>Viento</th>
+                <th>Icono</th>
               </tr>
             </thead>
             <tbody id="renderTable"></tbody>
@@ -49,5 +55,6 @@
     <script src="/config.js"></script>
     <script src="/weatherApp.js"></script>
     <script src="/newsApp.js"></script>
+    <script src="/theme.js"></script>
   </body>
 </html>

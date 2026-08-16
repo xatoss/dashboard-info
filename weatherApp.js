@@ -28,6 +28,8 @@ async function searchWeather() {
 }
 
 function resultTable(data) {
+  const icon = document.createElement("i");
+
   const renderTable = document.querySelector("#renderTable");
   renderTable.innerHTML = "";
   const tr = document.createElement("tr");
@@ -41,6 +43,10 @@ function resultTable(data) {
   const tdDesc = document.createElement("td");
   tdDesc.textContent = data.weather[0].description;
 
+  icon.className = getWeatherIcon(data.weather[0].description);
+  const tdIcon = document.createElement("td");
+  tdIcon.appendChild(icon);
+
   const tdHum = document.createElement("td");
   tdHum.textContent = data.main.humidity;
 
@@ -52,6 +58,20 @@ function resultTable(data) {
   tr.appendChild(tdDesc);
   tr.appendChild(tdHum);
   tr.appendChild(tdWind);
+  tr.appendChild(tdIcon);
 
   renderTable.appendChild(tr);
+}
+function getWeatherIcon(description) {
+  if (description.includes("claro")) return "wi wi-day-sunny";
+  if (description.includes("despejado")) return "wi wi-day-sunny";
+  if (description.includes("nuboso")) return "wi wi-cloudy";
+  if (description.includes("nublado")) return "wi wi-cloudy";
+  if (description.includes("nubes")) return "wi wi-cloudy";
+  if (description.includes("lluvia")) return "wi wi-rain";
+  if (description.includes("llovizna")) return "wi wi-sprinkle";
+  if (description.includes("tormenta")) return "wi wi-thunderstorm";
+  if (description.includes("nieve")) return "wi wi-snow";
+  if (description.includes("niebla")) return "wi wi-fog";
+  return "wi wi-na";
 }
